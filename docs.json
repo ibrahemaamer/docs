@@ -1,12 +1,7 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "willow",
-  "name": "Mint Starter Kit",
-  "colors": {
-    "primary": "#16A34A",
-    "light": "#07C983",
-    "dark": "#15803D"
-  },
+  "name": "Nbula AI",
   "favicon": "/favicon.svg",
   "navigation": {
     "tabs": [
