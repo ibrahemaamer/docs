@@ -17,8 +17,8 @@
             "group": "Get Started",
             "pages": [
               "introduction",
-              "Building AI Agents",
-              "Monitoring Agents"
+              "agents",
+              "monitoring"
             ]
           },
           {
