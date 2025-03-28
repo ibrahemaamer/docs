@@ -3,10 +3,99 @@ title: "Deploying Agents"
 description: "Shipable makes it easy to create powerful AI agents tailored to your specific needs. This guide will walk you through the process of configuring your first AI agent from scratch."
 ---
 
-## Getting Started
+## Testing Your Agent
 
-To begin building an AI agent in Shipable:
+Before publishing your agent to users, it's important to verify it functions as expected:
 
-1. Navigate to the Playground section in your Shipable dashboard
-2. Click on "New Project" or select an existing draft project
-3. You'll be taken to the agent configuration screen
+### Using the Preview Panel
+
+1. Locate the preview panel on the right side of the agent configuration screen
+2. Type test messages in the input field to simulate user interactions
+3. Observe how your agent responds to various queries
+4. Pay attention to both the content and tone of responses
+
+### ![Creation Step 2 Configure(1) Pn](/Creation-step-2-configure\(1\).png)
+
+What to Test
+
+When testing your agent, verify:
+
+- **Knowledge Retrieval**: Does the agent correctly access and use information from your knowledge base?
+- **Tool Integration**: Are connected tools (Gmail, Jira, etc.) functioning properly?
+- **Instruction Adherence**: Does the agent maintain the persona and follow guidelines you specified?
+- **Edge Cases**: Test unusual or complex queries to see how the agent handles them
+
+### Refining Your Agent
+
+Based on test results:
+
+1. Adjust your instructions if the agent's tone or approach needs improvement
+2. Add or modify knowledge base content if the agent lacks necessary information
+3. Reconfigure tool settings if they aren't working as expected
+4. Test voice interactions if you've enabled voice chat
+
+## Publishing Your Agent
+
+When you're satisfied with your agent's performance, you're ready to publish:
+
+1. Click the "Publish" button in the top-right corner of the Playground
+2. Confirm your deployment method (Website, iFrame, Chat Bubble, API, Slack)
+3. Review the final settings before deployment
+
+### ![Creation Step 2 Configure(3) Pn](/images/Creation-step-2-configure\(3\).png)
+
+Deployment Options
+
+Shipable offers multiple ways to deploy your agent:
+
+#### Website Deployment
+
+1. Your agent will be accessible via a dedicated URL: `https://www.shipable.com/your-project-name/chat`
+2. You can customize the domain for premium plans
+
+#### iFrame Deployment
+
+1. Select the iFrame Code Interface option
+2. Copy the provided code snippet
+3. Paste the code into your website's HTML to embed the agent
+
+#### Chat Bubble
+
+1. Adds a floating chat bubble to your existing website
+2. Configure appearance settings to match your brand
+
+#### API
+
+1. Access your agent programmatically via API endpoints
+2. Useful for custom integrations with your own applications
+
+#### Slack Integration
+
+1. Deploy your agent directly to your Slack workspace
+2. Enable team collaboration with your AI assistant
+
+## Managing Deployed Agents
+
+After publishing:
+
+### Updating Published Agents
+
+1. Return to the Playground to make changes to your agent
+2. Edit settings, knowledge base, or instructions as needed
+3. Click "Publish" again to push updates to the live agent
+
+### Creating Multiple Versions
+
+For testing different configurations:
+
+1. Clone your existing agent to create a new version
+2. Make changes to the new version while keeping the original intact
+3. Test and publish the new version when ready
+
+### Sharing Access
+
+To provide team access to your deployed agent:
+
+1. Copy the access URL or embed code
+2. Share with team members or integrate into shared resources
+3. Consider setting up user information collection for better tracking
