@@ -2,6 +2,11 @@
   "$schema": "https://mintlify.com/docs.json",
   "theme": "willow",
   "name": "Nbula AI",
+  "colors": {
+    "primary": "#7ab3f6",
+    "light": "#07C983",
+    "dark": "#15803D"
+  },
   "favicon": "/favicon.svg",
   "navigation": {
     "tabs": [
