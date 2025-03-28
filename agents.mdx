@@ -1,97 +1,76 @@
 ---
-title: 'Building AI Agents'
-description: 'Start building awesome agents in under 8 minutes'
+title: "Building AI Agents"
+description: "Shipable makes it easy to create powerful AI agents tailored to your specific needs. This guide will walk you through the process of configuring your first AI agent from scratch."
 ---
 
-## Setup your development
+## Getting Started
 
-Learn how to update your docs locally and deploy them to the public.
+To begin building an AI agent in Shipable:
 
-### Edit and preview
+1. Navigate to the Playground section in your Shipable dashboard
+2. Click on "New Project" or select an existing draft project
+3. You'll be taken to the agent configuration screen
 
-<AccordionGroup>
-  <Accordion icon="github" title="Clone your docs locally">
-    During the onboarding process, we created a repository on your Github with
-    your docs content. You can find this repository on our
-    [dashboard](https://dashboard.mintlify.com). To clone the repository
-    locally, follow these
-    [instructions](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository)
-    in your terminal.
-  </Accordion>
-  <Accordion icon="rectangle-terminal" title="Preview changes">
-    Previewing helps you make sure your changes look as intended. We built a
-    command line interface to render these changes locally. 
-    1. Install the
-    [Mintlify CLI](https://www.npmjs.com/package/mintlify) to preview the
-    documentation changes locally with this command: ``` npm i -g mintlify ```
-    2. Run the following command at the root of your documentation (where
-    `docs.json` is): ``` mintlify dev ```
-    <Note>
-      If you’re currently using the legacy ```mint.json``` configuration file, please update the Mintlify CLI:
+![image.png](/image.png)
 
+## Configuring Your Agent
 
-      ```npm i -g mintlify@latest```
-      And run the new upgrade command in your docs repository:
+### Step 1: Select an AI Model
 
-      ```mintlify upgrade```
-      You should now be using the new ```docs.json``` configuration file. Feel free to delete the ```mint.json``` file from your repository.
-    </Note>
-  </Accordion>
-</AccordionGroup>
+The first step is choosing which AI model will power your agent:
 
-### Deploy your changes
+1. From the dropdown menu, select your preferred model (e.g., OpenAI/GPT-4-turbo, Claude)
+2. For models requiring API keys, enter your key in the provided field
 
-<AccordionGroup>
+![image.png](/Creation-step-2-configure.png)
 
-<Accordion icon="message-bot" title="Install our Github app">
-  Our Github app automatically deploys your changes to your docs site, so you
-  don't need to manage deployments yourself. You can find the link to install on
-  your [dashboard](https://dashboard.mintlify.com). Once the bot has been
-  successfully installed, there should be a check mark next to the commit hash
-  of the repo.
-</Accordion>
-<Accordion icon="rocket" title="Push your changes">
-  [Commit and push your changes to
-  Git](https://docs.github.com/en/get-started/using-git/pushing-commits-to-a-remote-repository#about-git-push)
-  for your changes to update in your docs site. If you push and don't see that
-  the Github app successfully deployed your changes, you can also manually
-  update your docs through our [dashboard](https://dashboard.mintlify.com).
-</Accordion>
+### Step 2: Define Agent Instructions
 
-</AccordionGroup>
+Instructions are crucial for shaping how your agent behaves:
 
-## Update your docs
+1. Choose a preset persona (Financial Analyst, Legal Assistant, Travel Guide, or Personal Companion) or create your own
+2. Write clear instructions in the editor, including:
+   - The agent's role and purpose
+   - How it should respond to queries
+   - Any specific guidelines for tone and style
+   - Limitations or boundaries for responses
 
-Add content directly in your files with MDX syntax and React components. You can use any of our components, or even build your own.
+### ![image.png](/Creation-step-2-configure\(1\).png)
 
-<CardGroup>
+Step 3: Add Knowledge Base
 
-<Card title="Add Content With MDX" icon="file" href="/essentials/markdown">
-  Add content to your docs with MDX syntax.
-</Card>
+Power your agent with relevant data:
 
-<Card
-  title="Add Code Blocks"
-  icon="square-code"
-  href="/essentials/code"
->
-  Add code directly to your docs with syntax highlighting.
-</Card>
+1. Click "Add Data" in the Knowledge Base section
+2. Choose your data source:
+   - Local File: Upload documents (.pdf, .doc, .docx, .txt)
+   - Website: Connect to web content
+   - Q&A: Create custom question-answer pairs
+   - Integrations: Connect with Google Drive, Notion, and other platforms
+3. For uploaded files, Nbula will automatically process and tokenize the content
+4. You can view all uploaded data and token usage in the All Data section
 
-<Card
-  title="Add Images"
-  icon="image"
-  href="/essentials/images"
->
-  Add images to your docs to make them more engaging.
-</Card>
+### ![Creation KB Pn](/images/Creation-KB.png)
 
-<Card
-  title="Add Custom Components"
-  icon="puzzle-piece"
-  href="/essentials/reusable-snippets"
->
-  Add templates to your docs to make them more reusable.
-</Card>
+Step 4: Connect Tools
 
-</CardGroup>
+Enhance your agent's capabilities with tools:
+
+1. Click "Add Tool" to browse available tools
+2. Select tools relevant to your use case:
+   - Jira: Search and manage tasks
+   - Gmail: Search and send emails
+   - Web Content: Retrieve information from websites
+   - Github: Access repositories and code
+3. For each tool, complete the required authentication steps
+4. Configure tool-specific settings (e.g., for Gmail, specify allowed email addresses)
+
+### ![Creation Step 2 Configure(2) Pn](/images/Creation-step-2-configure\(2\).png)
+
+Step 5: Enable Additional Features
+
+Customize your agent with additional capabilities:
+
+1. Voice Chat: Toggle on to allow users to interact with your agent via voice
+2. Guardrail: Enable to ensure your agent strictly follows its instructions
+3. Collect User Information: Configure what user data to collect (name, email, phone number)
