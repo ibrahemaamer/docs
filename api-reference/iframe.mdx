@@ -1,5 +1,97 @@
 ---
-title: 'New file'
-description: 'Description of your new file.'
+title: "Iframe Integration"
+description: "The Shipable Iframe integration allows you to embed your AI agent directly within your webpage as a full-featured conversational interface. This approach gives you maximum control over placement, sizing, and user experience while maintaining all of Shipable's advanced capabilities."
 ---
 
+## Key Features
+
+- **Full-Page Experience**: Create dedicated AI assistant pages or knowledge centers
+- **Seamless Website Integration**: Embed your agent to match your site's design
+- **Rich Interactions**: Support for all Shipable capabilities including file uploads, buttons, and rich media
+- **Responsive Design**: Automatically adapts to container size and device type
+- **Custom Header/Footer**: Add your own navigation elements or branding
+- **Multi-Step Workflows**: Guide users through complex processes with conversational forms
+- **Custom CSS Support**: Apply your own styles for complete visual control
+
+## Implementation
+
+Add the Iframe to any webpage using standard HTML:\
+\
+`<iframe\
+  src="https://app.shipable.ai/embed/YOUR_AGENT_ID"\
+  width="100%"\
+  height="600px"\
+  frameborder="0"\
+  allow="microphone">`\
+`</iframe>`
+
+## E-commerce Integration
+
+### Shopify Integration
+
+1. From your Shopify admin, go to "Online Store" → "Themes"
+2. Click "Actions" → "Edit code" for your active theme
+3. In the "Layout" folder, click on "theme.liquid"
+4. Before the closing `</body>` tag, add the iframe code:
+
+```
+{% if template == 'product' %}
+  <div class="product-assistant">
+    <h3>Product Assistant</h3>
+    <iframe
+      src="https://app.shipable.ai/embed/YOUR_AGENT_ID?initialMessage=Ask%20me%20about%20this%20product!"
+      width="100%"
+      height="500px"
+      frameborder="0"
+      allow="microphone"
+    ></iframe>
+  </div>
+{% endif %}
+```
+
+1. Add custom CSS to style the container as needed
+2. Save the changes
+
+### WooCommerce Integration
+
+1. Go to your WordPress dashboard
+2. Navigate to Appearance → Theme Editor
+3. Select your active theme
+4. Choose the "Single Product" template (usually single-product.php)
+5. Add the following code where you want the assistant to appear:
+
+```
+<div class="product-assistant">
+  <h3>Product Assistant</h3>
+  <?php
+  echo '<iframe
+    src="https://app.shipable.ai/embed/YOUR_AGENT_ID?initialMessage=Ask%20me%20about%20' . urlencode(get_the_title()) . '!"
+    width="100%"
+    height="500px"
+    frameborder="0"
+    allow="microphone"
+  ></iframe>';
+  ?>
+</div>
+```
+
+1. Save the changes
+
+## Best Practices
+
+- **Responsive Containers**: Use percentage widths and CSS media queries to ensure the iframe adapts to different screen sizes
+- **Appropriate Height**: Ensure sufficient height (minimum 400px recommended) for a good conversation experience
+- **Context Setting**: Customize the initial message to reference the specific page or product content
+- **Visual Consistency**: Match the iframe theme to your website's design language
+- **Clear Purpose**: Add a descriptive heading above the iframe to set user expectations
+- **Performance Optimization**: Place iframes lower on the page to prioritize core content loading first
+
+## Troubleshooting
+
+| Issue                            | Solution                                                                     |
+| :------------------------------- | :--------------------------------------------------------------------------- |
+| Iframe not resizing properly     | Use CSS to set appropriate responsive dimensions                             |
+| Microphone access issues         | Ensure the iframe has the `allow="microphone"` attribute                     |
+| Scrolling problems               | Add `scrolling="yes"` to the iframe tag if content exceeds iframe dimensions |
+| Content security policy blocking | Add `https://app.shipable.ai` to your website's CSP frame-src directive      |
+| Cross-origin issues              | Contact support if you experience CORS-related problems                      |

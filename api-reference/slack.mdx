@@ -1,0 +1,99 @@
+---
+title: "Slack Integration"
+description: "The Shipable Slack integration brings your AI agents directly into your team's Slack workspace, enabling seamless access to knowledge, automating routine tasks, and streamlining internal processes. Deploy powerful AI assistance where your team already collaborates."
+---
+
+## Key Features
+
+- **Direct Messaging**: Interact with your AI agent through private DMs
+- **Channel Monitoring**: Deploy your agent to specific channels to answer questions
+- **Command Invocation**: Use slash commands to trigger specific agent actions
+- **Notifications**: Receive alerts when important events occur in Shipable
+- **Rich Formatting**: Full support for Slack's block kit UI components
+- **Thread Support**: Maintain conversation context within Slack threads
+- **File Processing**: Upload and analyze documents directly in Slack
+- **Action Buttons**: Trigger workflows with interactive buttons and menus
+- **Cross-Functional Use**: Support for marketing, sales, HR, and support teams
+
+## Use Cases
+
+| Team        | Use Case                         | Example                                          |
+| :---------- | :------------------------------- | :----------------------------------------------- |
+| Engineering | Internal documentation assistant | "/ask How do I set up the dev environment?"      |
+| HR          | Policy questions and onboarding  | "What's our parental leave policy?"              |
+| Marketing   | Campaign data and reporting      | "Show me the performance of our latest campaign" |
+| Sales       | Quick product information        | "What's our pricing for enterprise customers?"   |
+| Support     | Internal knowledge sharing       | "How do I process a refund request?"             |
+| Product     | Feature documentation access     | "What are the requirements for the new feature?" |
+
+## Installation
+
+### From Shipable Dashboard
+
+1. Log in to your Shipable dashboard
+2. Navigate to Integrations → Slack
+3. Click "Add to Slack"
+4. Select your workspace and approve permissions
+5. Configure your agent settings for Slack
+
+## Using Your Shipable Agent in Slack
+
+### Direct Messages
+
+Simply start a direct message conversation with the Shipable app in your Slack workspace. Your agent will respond based on its configured knowledge sources and capabilities.
+
+### Channel Interactions
+
+In channels where the agent is active, you can:
+
+1. **Mention the agent**: `@Shipable What's the status of project X?`
+2. **Use the configured command**: `/ask What's our return policy?`
+
+### Advanced Features
+
+- **Document Processing**: Drag and drop files to the Shipable DM with a question about the content
+- **Interactive Buttons**: Some responses include buttons to trigger specific actions
+- **Custom Slash Commands**: Configure specialized commands for different agent functions
+
+## Implementation Examples
+
+### Knowledge Base Assistant
+
+```
+@Shipable What's our current refund policy for international customers?
+
+🤖 Our refund policy for international customers allows for full refunds within 30 days of purchase. Here are the key points:
+
+• All refund requests must be submitted through our customer portal
+• Shipping costs are non-refundable
+• Processing time is 5-7 business days
+• Currency conversion rates at the time of refund apply
+
+For more details, see our full policy document: [Refund Policy Document]
+
+Need any clarification on this?
+```
+
+### Document Analysis
+
+```
+User uploads a PDF contract document
+
+@Shipable Can you summarize the key points in this contract?
+
+🤖 Here's a summary of the key points in the contract:
+
+**Agreement Terms:**
+• 12-month initial term with automatic renewal
+• 30-day written notice required for termination
+• $5,000 monthly service fee, billed quarterly
+
+**Responsibilities:**
+• Client provides access to necessary systems by May 1, 2025
+• Vendor delivers initial implementation within 45 days
+• Both parties will assign a dedicated project manager
+
+**Special Clauses:**
+• Non-compete for 24 months after termination
+• Confidentiality terms extend 5 years beyond contract end
+```

@@ -1,5 +1,185 @@
 ---
-title: 'New file'
-description: 'Description of your new file.'
+title: "API Integration"
+description: "The Shipable API provides programmatic access to all of your AI agent's capabilities, allowing you to build custom applications, integrate with existing systems, or create specialized user interfaces. Our comprehensive REST API empowers developers to embed Shipable's intelligence anywhere."
 ---
 
+## Key Features
+
+- **Complete Agent Access**: Programmatically interact with your AI agents
+- **Custom UI Development**: Build your own frontend experiences
+- **Backend Integrations**: Connect with existing systems and workflows
+- **Streaming Responses**: Support for real-time streaming responses
+- **Stateful Conversations**: Maintain conversation context and history
+- **File Processing**: Upload and process documents programmatically
+- **Action Execution**: Trigger agent workflows and custom actions
+- **Webhook Support**: Receive notifications for specific events
+- **Comprehensive Authentication**: Secure your integrations with multiple auth options
+
+## Authentication
+
+Shipable API uses API keys for authentication. Generate your API key in the Shipable dashboard under Settings → API.
+
+All API requests must include your API key in the header:
+
+```
+Authorization: Bearer YOUR_API_KEY
+```
+
+API keys have specific permissions. You can create multiple keys with different access levels (read-only, conversation-only, full access).
+
+## Implementation Examples
+
+### Basic Chatbot Implementation (JavaScript)
+
+```
+async function sendMessage(agentId, conversationId, message) {
+  const response = await fetch(`https://api.shipable.ai/v1/agents/${agentId}/conversations/${conversationId}/messages`, {
+    method: 'POST',
+    headers: {
+      'Authorization': `Bearer ${apiKey}`,
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      message: message
+    })
+  });
+  
+  return await response.json();
+}
+
+// Example usage
+let conversationId = "conv_789xyz";
+const userMessage = "What's the status of my order?";
+
+sendMessage("agent_abc123", conversationId, userMessage)
+  .then(response => {
+    console.log("AI response:", response.content);
+  })
+  .catch(error => {
+    console.error("Error:", error);
+  });
+```
+
+### Streaming Response Example (JavaScript)
+
+```
+function streamResponse(agentId, conversationId, message) {
+  const messageElement = document.getElementById('response');
+  messageElement.innerHTML = '';
+  
+  const eventSource = new EventSource(
+    `https://api.shipable.ai/v1/agents/${agentId}/conversations/${conversationId}/messages/stream?message=${encodeURIComponent(message)}`,
+    {
+      headers: {
+        'Authorization': `Bearer ${apiKey}`
+      }
+    }
+  );
+  
+  eventSource.addEventListener('message_chunk', function(event) {
+    const data = JSON.parse(event.data);
+    messageElement.innerHTML += data.chunk;
+  });
+  
+  eventSource.addEventListener('message_complete', function() {
+    eventSource.close();
+  });
+  
+  eventSource.onerror = function() {
+    eventSource.close();
+    messageElement.innerHTML += '<br>[Connection closed]';
+  };
+}
+```
+
+### Python Example
+
+```
+import requests
+
+API_KEY = "your_api_key_here"
+AGENT_ID = "agent_abc123"
+CONVERSATION_ID = "conv_789xyz"
+API_BASE = "https://api.shipable.ai/v1"
+
+headers = {
+    "Authorization": f"Bearer {API_KEY}",
+    "Content-Type": "application/json"
+}
+
+def send_message(message):
+    url = f"{API_BASE}/agents/{AGENT_ID}/conversations/{CONVERSATION_ID}/messages"
+    payload = {"message": message}
+    
+    response = requests.post(url, json=payload, headers=headers)
+    
+    if response.status_code == 200:
+        return response.json()
+    else:
+        print(f"Error: {response.status_code}")
+        print(response.text)
+        return None
+
+# Example usage
+user_message = "Can you help me understand your pricing plans?"
+response = send_message(user_message)
+
+if response:
+    print(f"AI: {response['content']}")
+```
+
+## Webhooks
+
+Shipable can send webhook notifications for key events to your server:
+
+1. Go to the Shipable dashboard → Settings → Webhooks
+2. Add a new webhook endpoint URL
+3. Select the events you want to receive notifications for
+4. Configure your server to receive POST requests from Shipable
+
+Example webhook events:
+
+- `conversation.created`: New conversation started
+- `conversation.completed`: Conversation marked as completed
+- `message.created`: New message in a conversation
+- `lead.captured`: Lead information collected
+- `action.executed`: Custom action or workflow executed
+
+Webhook payloads include relevant data and a signature header for verification.
+
+## Rate Limits
+
+| Plan       | Rate Limit                |
+| :--------- | :------------------------ |
+| Free       | 60 requests per minute    |
+| Growth     | 300 requests per minute   |
+| Pro        | 1,000 requests per minute |
+| Enterprise | Custom limits             |
+
+Rate limit headers are included in all API responses:
+
+```
+X-RateLimit-Limit: 300
+X-RateLimit-Remaining: 297
+X-RateLimit-Reset: 1587572400
+```
+
+## Error Handling
+
+The API uses conventional HTTP response codes:
+
+- 2xx: Success
+- 4xx: Client errors (invalid request, authentication issues)
+- 5xx: Server errors
+
+Example error response:
+
+```
+{
+  "error": {
+    "type": "authentication_error",
+    "message": "Invalid API key provided",
+    "code": "invalid_api_key"
+  }
+}
+```

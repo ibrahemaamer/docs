@@ -1,5 +1,66 @@
 ---
-title: 'New file'
-description: 'Description of your new file.'
+title: "Chat Bubble Integration"
+description: "The Shipable Chat Bubble provides a lightweight, floating chat interface that can be added to any website with minimal code. This non-intrusive solution expands when clicked, giving your visitors instant access to your AI agent without disrupting their browsing experience."
 ---
 
+## Key Features
+
+- **Customizable Appearance**: Match your brand with custom colors, icons, and positioning
+- **Smart Triggering**: Configure when the bubble appears based on time on page, scroll depth, or visitor behavior
+- **Mobile Responsive**: Automatically adapts to different screen sizes and devices
+- **Conversation Starters**: Add suggested questions to help users engage with your AI
+- **Rich Media Support**: Share images, carousels, and buttons within conversations
+- **Multi-language Support**: Automatically detect and respond in your visitor's language
+- **File Upload Capability**: Allow users to share documents, images, or other files
+
+## Implementation
+
+Adding the Chat Bubble to your website requires just a simple script tag. Copy and paste the code below before the closing `</body>` tag of your website:
+
+```
+<script>
+  window.shipableSettings = {
+    agentId: "YOUR_AGENT_ID",
+    position: "bottom-right",  // Options: bottom-right, bottom-left, top-right, top-left
+    theme: "light",            // Options: light, dark, or custom
+    greeting: "Hi there! How can I help you today?",
+    logoUrl: "https://yourdomain.com/logo.png"  // Optional
+  };
+</script>
+<script src="https://app.shipable.ai/bubble.js" async></script>
+```
+
+## Website Builder Integrations
+
+### Adding to Webflow
+
+1. Navigate to your Webflow project dashboard
+2. Go to Project Settings → Custom Code
+3. Paste the Shipable script in the "Footer Code" section
+4. Save and publish your site
+
+### Adding to WordPress
+
+1. Install the Shipable WordPress plugin from the WordPress plugin directory
+2. Navigate to Shipable settings in your WordPress admin dashboard
+3. Enter your Agent ID and customize appearance settings
+4. Save changes to activate the chat bubble
+
+### Adding to Wix
+
+1. Go to your Wix dashboard
+2. Navigate to Settings → Advanced → Custom Code
+3. Click "Add Custom Code"
+4. Paste the Shipable script, select "Body - end" as the placement
+5. Click "Apply" and publish your site
+
+## Troubleshooting
+
+| Issue                          | Solution                                                                                      |
+| :----------------------------- | :-------------------------------------------------------------------------------------------- |
+| Chat bubble not appearing      | Verify your Agent ID is correct and the script is properly placed before the closing body tag |
+| Styling conflicts with website | Use the iframe integration method instead for complete isolation                              |
+| Performance concerns           | The script loads asynchronously and has minimal impact on page load times                     |
+| Multiple bubbles appearing     | Ensure the script is only included once across your site                                      |
+
+Need more help? Contact [support@shipable.ai](mailto:support@shipable.ai)
