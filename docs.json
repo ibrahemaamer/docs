@@ -30,10 +30,11 @@
           {
             "group": "Integrations",
             "pages": [
+              "api-reference/introduction",
               "api-reference/bubble",
               "api-reference/iframe",
               "api-reference/slack",
-              "api-reference/introduction"
+              "api-reference/api"
             ]
           }
         ]
