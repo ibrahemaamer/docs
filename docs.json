@@ -25,22 +25,14 @@
         ]
       },
       {
-        "tab": "API Reference",
-        "groups": [
-          {
-            "group": "API Documentation",
-            "pages": [
-              "api-reference/introduction"
-            ]
-          }
-        ]
-      },
-      {
         "tab": "Integrations",
         "groups": [
           {
             "group": "Integrations",
             "pages": [
+              "api-reference/bubble",
+              "api-reference/iframe",
+              "api-reference/slack",
               "api-reference/introduction"
             ]
           }
